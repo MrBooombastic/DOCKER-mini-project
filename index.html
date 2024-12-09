@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini project of ZAFAR KHIDOYATOV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 20%;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #00ccff;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        select {
+            margin-top: 20px;
+            padding: 5px;
+        }
+        .filter {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ZAFAR KHIDOYATOV</h1>
+    
+    <div class="container">
+        <h2>Timetable</h2>
+
+        <form method="get" action="/" class="filter">
+            <label for="level">Select Level:</label>
+            <select name="level" id="level" onchange="this.form.submit()">
+                {% for level in levels %}
+                    <option value="{{ level }}" {% if level == selected_level %}selected{% endif %}>{{ level }}</option>
+                {% endfor %}
+            </select>
+        </form>
+
+        <table>
+            <tr>
+                <th>Course Name</th>
+                <th>Day</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Level</th>
+            </tr>
+            {% for course in courses %}
+            <tr>
+                <td>{{ course[0] }}</td>
+                <td>{{ course[1] }}</td>
+                <td>{{ course[2] }}</td>
+                <td>{{ course[3] }}</td>
+                <td>{{ selected_level }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
