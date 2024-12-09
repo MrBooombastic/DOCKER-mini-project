@@ -43,6 +43,10 @@ INSERT INTO Timetable (course_name, day, time, room, level) VALUES
 
 ---
 
+
+
+```
+
 ### 3. Installation 
 
 python -m venv final
@@ -50,10 +54,6 @@ python -m venv final
 pip install -r requirements.txt
 
 pip install psycopg2-binary
-
-
-```
-
 ---
 
 ### 4. Create Flask Application  
